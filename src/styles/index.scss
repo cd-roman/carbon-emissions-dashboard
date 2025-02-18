@@ -1,0 +1,55 @@
+@import "./variables";
+@import "./mixins";
+
+
+html, body {
+  font-family: 'Manrope', sans-serif !important;
+}
+
+button {
+  cursor: pointer;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+  background-color: transparent;
+  
+}
+
+
+*::-webkit-scrollbar-track {
+	border-radius: 4px;
+	background-color: transparent;
+}
+
+
+::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background-color: $color-gray;
+}
+
+*::-webkit-scrollbar-track-piece:start {
+  background-color: $color-light;
+  margin: 4px 0 0px;
+}
+
+*::-webkit-scrollbar-track-piece:end {
+  background-color: $color-light;
+  margin: 0 0 10px;
+}
+
+h1 {
+  font-size: 32px !important;
+
+  @include mediaMd {
+    font-size: 60px !important;
+  }
+}
+
+h2, h3 {
+  font-size: 18px !important;
+
+  @include mediaMd {
+    font-size: 24px !important;
+  }
+}
