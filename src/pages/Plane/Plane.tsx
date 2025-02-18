@@ -1,15 +1,10 @@
-
-import './Plane.scss';
-
+import { Layout } from "../../components/modules";
+import "./Plane.scss";
 
 export const Plane = () => {
-
-
-    return (
-        <>
-           <h1>
-                Flights emissions page
-           </h1>
-        </>
-    )
-}
+  return (
+    <Layout>
+      <h1>Flights emissions page</h1>
+    </Layout>
+  );
+};
