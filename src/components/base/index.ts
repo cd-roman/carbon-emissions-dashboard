@@ -1,10 +1,6 @@
 import {Navigation} from "./Navigation";
 import {CustomSwitch} from './CustomSwitch'
 import { Hamburger } from "./Hamburger";
+import { CtxProvider, MyGlobalContext } from "./CtxProvider";
 
-
-export {
-    Navigation,
-    CustomSwitch,
-    Hamburger,
-}
+export { CtxProvider, CustomSwitch, Hamburger, Navigation, MyGlobalContext };

@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { routes } from "./routes.tsx";
 import { createTheme, ThemeProvider } from "@mui/material";
-import "./App.css";
+import { CtxProvider } from "./components/base/";
+import "./index.css";
 
 const defaultTheme = createTheme({
   palette: {
@@ -16,7 +17,7 @@ const defaultTheme = createTheme({
 
 function App() {
   return (
-    <>
+    <CtxProvider>
       <Router>
         <ThemeProvider theme={defaultTheme}>
           <Routes>
@@ -26,7 +27,7 @@ function App() {
           </Routes>
         </ThemeProvider>
       </Router>
-    </>
+    </CtxProvider>
   );
 }
 
