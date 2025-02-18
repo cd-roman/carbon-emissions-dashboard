@@ -1,0 +1,134 @@
+@import "/src/styles/index";
+
+.tableScore {
+  padding: 13px 2px 13px 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color-white;
+  border-radius: 32px;
+
+  h2 {
+    margin: 0;
+  }
+
+  thead,
+  tbody {
+    display: block;
+    border: none;
+  }
+
+  tr {
+    display: grid;
+
+    grid-template-columns: 
+      minmax(30px, 35px)
+      repeat(auto-fit, minmax(100px, 1fr));
+
+    justify-items: center;
+    align-items: center;
+    gap: 9px;
+  }
+
+  th,
+  td {
+    font-weight: 400;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap; // if needed
+  }
+
+  tbody th,
+  tbody td {
+    overflow: hidden;
+  }
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.caption {
+  padding: 0 15px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    margin: 0;
+    font-size: 24px;
+    color: $color-dark;
+    line-height: 1.375;
+  }
+
+  & > div {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  @include mediaMd {
+    padding: 0 20px 13px;
+  }
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex: 1 1 auto;
+}
+
+.tableHead {
+  padding: 0 15px;
+  font-size: 16px;
+  color: $color-gray;
+  line-height: 1;
+
+  & > tr {
+    padding: 15px 0;
+    border-top: 1px solid $color-light;
+    border-bottom: 1px solid $color-light;
+  }
+  
+  th {
+    font-weight: 500;
+  }
+
+  th:last-child {
+    color: $color-dark;
+  }
+
+  @include mediaMd {
+    padding:  0 20px;
+
+    & > tr {
+      padding: 20px 0;
+    }
+  }
+}
+
+.tableBody {
+  padding: 0 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  overflow: auto;
+
+  & > tr {
+    padding: 12px 0;
+  }
+
+  & > tr:last-child {
+    padding: 12px 0 0;
+  }
+
+  @include mediaMd {
+    padding: 0 20px;
+  }
+}

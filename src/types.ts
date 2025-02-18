@@ -5,3 +5,10 @@ export type RouteType = {
     component: ReactNode;
     name: string;
 };
+
+export type Cars = {
+  id: number;
+  type: string;
+  gasCarbon: number;
+  dieselCarbon: number;
+};

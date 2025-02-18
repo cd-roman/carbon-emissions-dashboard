@@ -5,13 +5,13 @@ import {Switch} from "@mui/material";
 
 
 type CustomSwitchProps = {
-    label1: string,
-    label2: string,
-    value: boolean,
-    setValue: (c:boolean) => void,
-    type: string,
-    setGlobalValue: (c: string) => void,
-}
+  label1: string;
+  label2: string;
+  value: boolean;
+  setValue: (c: boolean) => void;
+  type: string;
+  setGlobalValue: (c: any) => void;
+};
 export const CustomSwitch = ({label1, label2, value, setValue, type, setGlobalValue}: CustomSwitchProps) => {
     const [active , setActive] = useState(type === label2)
 

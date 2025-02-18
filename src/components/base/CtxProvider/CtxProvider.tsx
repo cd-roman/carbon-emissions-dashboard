@@ -1,8 +1,21 @@
 import {ReactNode, useState} from "react";
 import {BarChartType, Length, MyGlobalContext, Weight} from "./context";
+import carsData from "../../../data/cars.json";
+
+const { cars } = carsData;
 
 let flightsCarbon:BarChartType[]=[];
 let carsCarbon:BarChartType[]=[]
+
+cars.forEach((_, i) => {
+  if (carsCarbon.findIndex(({ id }) => id === i) < 0) {
+    carsCarbon.push({
+      id: i,
+      carbon: 0,
+      distance: 0,
+    });
+  }
+});
 
 interface LayoutProps {
     children: ReactNode
