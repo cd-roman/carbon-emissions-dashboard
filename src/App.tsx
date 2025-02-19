@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { routes } from "./routes.tsx";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { CtxProvider } from "./components/base/";
-import "./index.css";
 
 const defaultTheme = createTheme({
   palette: {

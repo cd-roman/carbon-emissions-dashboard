@@ -2,24 +2,25 @@ import { Button, ButtonProps } from '@mui/material';
 import { styled } from '@mui/system';
 
 export const CustomButtonPrimary = styled(Button)<ButtonProps>(() => ({
-  padding: '11px 24px',
-  color: '#fff',
-  backgroundColor: '#61b766',
-  fontFamily: 'inherit',
+  padding: "11px 24px",
+  color: "#fff",
+  backgroundColor: "#61b766",
+  fontFamily: "inherit",
   fontSize: 16,
   fontWeight: 500,
-  textTransform: 'none',
-  border: '1px solid #61b766',
-  borderRadius: '12px',
+  textTransform: "none",
+  border: "1px solid #61b766",
+  borderRadius: "12px",
   lineHeight: 1.3625,
-  '&:hover': {
-    color: '#61b766',
-    borderColor: '#ecf5ed',
+  "&:hover": {
+    color: "#61b766",
+    backgroundColor: "#fff",
+    borderColor: "#ecf5ed",
   },
-  ':disabled': {
-    backgroundColor: 'transparent',
+  ":disabled": {
+    backgroundColor: "transparent",
   },
-  height: 'inherit',
+  height: "inherit",
 }));
 
 export const CustomButtonSecondary = styled(Button)<ButtonProps>(() => ({
