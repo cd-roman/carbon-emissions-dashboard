@@ -22,7 +22,10 @@ export const Home = () => {
           </p>
         </div>
         <div className="home__image">
-          <img src="/Mask%20group.png" alt="plane and town" />
+          <img
+            src="src/assets/plane-and-charts.webp"
+            alt="plane above the highway with bar charts on the background"
+          />
         </div>
       </main>
     </Layout>

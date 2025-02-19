@@ -34,6 +34,9 @@ export const About = () => {
             Components, and Axios.
           </p>
         </div>
+        <div className={styles.right}>
+          <img src="src/assets/about.webp" alt="About" />
+        </div>
       </div>
     </Layout>
   );
