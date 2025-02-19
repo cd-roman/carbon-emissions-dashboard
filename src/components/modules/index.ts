@@ -14,6 +14,7 @@ import {
   TableScoreContentTableBody,
   TableScoreContentTableHead,
 } from "./TableScore";
+import { NewAirport } from "./NewAirport";
 
 export {
   Layout,
@@ -28,4 +29,5 @@ export {
   TableScoreContentTable,
   TableScoreContentTableBody,
   TableScoreContentTableHead,
+  NewAirport,
 };

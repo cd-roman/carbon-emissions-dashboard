@@ -65,10 +65,10 @@
     },
     {
       "id": "10",
-      "departure": "MAD",
-      "arrival": "BNC",
-      "distance": "5547.61",
-      "carbon": "2260.43"
+      "departure": "BCN",
+      "arrival": "PMI",
+      "distance": "202",
+      "carbon": "80"
     }
   ]
 }
