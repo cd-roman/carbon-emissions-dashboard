@@ -37,10 +37,13 @@ export const Plane = () => {
     setCarbonFl,
     flightBarChartArr,
     setFlightBarChartArr,
+    flights,
+    setFlights,
+    customFlights,
+    setCustomFlights,
   } = useContext(MyGlobalContext);
-  const [flights, setFlights] = useState<Flights[]>(data.flights);
+
   const [qtyAir, setQtyAir] = useState<number>(0);
-  const [customFlights, setCustomFlights] = useState<Flights[]>([]);
 
   const AddNewHandleClick = () => {
     const newFlight = {
@@ -60,10 +63,32 @@ export const Plane = () => {
   };
 
   const deleteFlight = (idx: number) => {
-    setFlights([...flights].filter((flight) => +flight.id !== idx));
-    setFlightBarChartArr(
-      [...flightBarChartArr].filter((bar) => bar.id !== idx - 1)
-    );
+    const flightToDelete = flights.find((f) => +f.id === idx);
+    if (flightToDelete) {
+      const flightCarbon =
+        +flightToDelete.carbon * (flightBarChartArr[idx - 1]?.distance || 0);
+
+      const updatedFlights = [...flights].filter(
+        (flight) => +flight.id !== idx
+      );
+      const reindexedFlights = updatedFlights.map((flight, index) => ({
+        ...flight,
+        id: `${index + 1}`,
+      }));
+
+      const updatedBarChart = flightBarChartArr
+        .filter((_, index) => index !== idx - 1)
+        .map((bar, index) => ({
+          ...bar,
+          id: index,
+        }));
+
+      setFlights(reindexedFlights);
+      setFlightBarChartArr(updatedBarChart);
+      setCustomFlights([]);
+      setCarbon((prevCarbon) => prevCarbon - flightCarbon);
+      setCarbonFl((prevCarbonFl) => prevCarbonFl - flightCarbon);
+    }
   };
 
   const refreshCustomHandleClick = () => {
@@ -129,12 +154,12 @@ export const Plane = () => {
               </TableScoreContentTableHead>
 
               <TableScoreContentTableBody>
-                {flights.map((flight, index) => (
+                {flights.map((flight) => (
                   <TableRowFlight
+                    key={`flight-${flight.id}`}
                     flights={flights}
                     item={flight}
-                    onDeleteFlight={(idx) => deleteFlight(idx)}
-                    key={index}
+                    onDeleteFlight={deleteFlight}
                   />
                 ))}
                 {customFlights.map((v) => (
@@ -186,3 +211,4 @@ export const Plane = () => {
     </Layout>
   );
 };
+

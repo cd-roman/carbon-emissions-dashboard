@@ -1,5 +1,5 @@
 import allAirports from '../data/airports.json'
-import {Airport} from "../types";
+import { Airport } from "../types";
 import axios, {AxiosHeaders, HeadersDefaults, RawAxiosRequestHeaders} from "axios";
 
 const myAirports = allAirports as Airport[]
