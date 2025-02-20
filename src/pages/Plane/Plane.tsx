@@ -20,10 +20,8 @@ import {
   DashboarScoreboard,
   NewAirport,
 } from "../../components/modules";
-import { Flights } from "../../types";
-import data from "../../data/popular-flights.json";
 import { ReactComponent as RefreshIcon } from "../../assets/refresh-outline_1.svg";
-
+import { Flights } from "../../types";
 import "./Plane.scss";
 import { Link, Stack } from "@mui/material";
 
@@ -52,9 +50,10 @@ export const Plane = () => {
       arrival: "",
       distance: "0",
       carbon: "0",
-    };
+      custom: true,
+    } as Flights;
 
-    setCustomFlights((currentCustomFlights) => [
+    setCustomFlights((currentCustomFlights: Flights[]) => [
       ...currentCustomFlights,
       newFlight,
     ]);
@@ -86,8 +85,8 @@ export const Plane = () => {
       setFlights(reindexedFlights);
       setFlightBarChartArr(updatedBarChart);
       setCustomFlights([]);
-      setCarbon((prevCarbon) => prevCarbon - flightCarbon);
-      setCarbonFl((prevCarbonFl) => prevCarbonFl - flightCarbon);
+      setCarbon(carbon - flightCarbon);
+      setCarbonFl(carbonFl - flightCarbon);
     }
   };
 

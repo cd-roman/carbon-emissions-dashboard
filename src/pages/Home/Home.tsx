@@ -1,5 +1,5 @@
 import { Layout } from "../../components/modules";
-
+import planeImage from "../../assets/plane-and-charts.webp";
 import "./Home.scss";
 
 export const Home = () => {
@@ -23,7 +23,7 @@ export const Home = () => {
         </div>
         <div className="home__image">
           <img
-            src="src/assets/plane-and-charts.webp"
+            src={planeImage}
             alt="plane above the highway with bar charts on the background"
           />
         </div>

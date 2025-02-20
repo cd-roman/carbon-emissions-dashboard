@@ -1,4 +1,4 @@
-import {createContext, useContext} from "react";
+import { createContext, useContext, Dispatch, SetStateAction } from "react";
 import { Flights } from "../../../types";
 
 export type Length = "km" | "mi";
@@ -25,9 +25,9 @@ export type GlobalContext = {
   carsBarChartArr: BarChartType[];
   setCarsBarChartArr: (c: BarChartType[]) => void;
   flights: Flights[];
-  setFlights: (c: Flights[]) => void;
+  setFlights: Dispatch<SetStateAction<Flights[]>>;
   customFlights: Flights[];
-  setCustomFlights: (c: Flights[]) => void;
+  setCustomFlights: Dispatch<SetStateAction<Flights[]>>;
 };
 
 export const MyGlobalContext = createContext<GlobalContext>({
@@ -61,4 +61,4 @@ export const MyGlobalContext = createContext<GlobalContext>({
   setCustomFlights: () => {},
 });
 
-export const useGlobalContext = () => useContext(MyGlobalContext)
+export const useGlobalContext = () => useContext(MyGlobalContext);

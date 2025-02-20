@@ -1,4 +1,5 @@
 import { Layout } from "../../components/modules";
+import aboutImage from "../../assets/about.webp";
 import styles from "./About.module.scss";
 
 export const About = () => {
@@ -35,7 +36,7 @@ export const About = () => {
           </p>
         </div>
         <div className={styles.right}>
-          <img src="src/assets/about.webp" alt="About" />
+          <img src={aboutImage} alt="About" />
         </div>
       </div>
     </Layout>
