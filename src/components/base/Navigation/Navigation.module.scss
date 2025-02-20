@@ -42,10 +42,17 @@
   color: $color-dark;
   text-decoration: none;
   width: 100%;
+  transition: color .2s ease;
+
+  &:hover {
+    color: $color-green;
+    transition: color .2s ease;
+  }
 
   &.active {
-    color: #61B766;
-    border: 1px solid #61B766;
+    color: $color-green;
+    border: 1px solid $color-green;
+    transition: color .2s ease;
   }
 
   &:nth-last-child(2) {
@@ -82,7 +89,7 @@
   }
 
   a {
-  color: #61B766;
+  color: $color-green;
   }
 
   @include mediaLg {

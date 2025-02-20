@@ -17,7 +17,7 @@ export const About = () => {
               CarbonSutra API
             </a>
             . All calculations were done to show approximate emissions and do
-            not pretend to be 100% valid.
+            not pretend to be 100% accurate.
           </p>
           <p>
             This dashboard aims to calculate the emissions you cause traveling
@@ -30,8 +30,8 @@ export const About = () => {
           <p>
             The project was created by the designers from Ukraine. All design
             solutions are made in Figma and Adobe Illustrator, while the tech
-            stack is React + Typescript, React Router Dom, Material UI, Styled
-            Components, and Axios.
+            stack is React + Typescript, React Router Dom, Material UI, and
+            Axios.
           </p>
         </div>
         <div className={styles.right}>

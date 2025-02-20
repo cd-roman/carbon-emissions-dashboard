@@ -10,31 +10,31 @@ export const routesPath = {
     about: '/about'
 }
 
-export const routes : RouteType[] = [
-    {
-        path: routesPath.home,
-        component: <Home/>,
-        name: 'Hello'
-    },
-    {
-        path: routesPath.plane,
-        component: <Plane/>,
-        name: 'Flights'
-    },
-    {
-        path: routesPath.cars,
-        component: <Cars/>,
-        name: 'Car trips'
-    },
+export const routes: RouteType[] = [
+  {
+    path: routesPath.home,
+    component: <Home />,
+    name: "Intro",
+  },
+  {
+    path: routesPath.plane,
+    component: <Plane />,
+    name: "Flights",
+  },
+  {
+    path: routesPath.cars,
+    component: <Cars />,
+    name: "Car trips",
+  },
 
-    {
-        path: routesPath.total,
-        component: <Total/>,
-        name: 'Total'
-    },
-    {
-        path: routesPath.about,
-        component: <About/>,
-        name: 'About'
-    },
-]
+  {
+    path: routesPath.total,
+    component: <Total />,
+    name: "Total",
+  },
+  {
+    path: routesPath.about,
+    component: <About />,
+    name: "About",
+  },
+];
