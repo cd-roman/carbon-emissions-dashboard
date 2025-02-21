@@ -93,9 +93,14 @@ const MemoTableRowFlight = ({item, onDeleteFlight}: TableRowProps) => {
       <div className={styles.flightRow}>
         <div>{item.id}</div>
 
-        <div>{`${departure[0].municipality}  (${item.departure})`}</div>
+        <div className={styles.airportName}>
+          {" "}
+          {`${departure[0].municipality}  (${item.departure})`}
+        </div>
 
-        <div>{`${arrival[0].municipality}  (${item.arrival})`}</div>
+        <div
+          className={styles.airportName}
+        >{`${arrival[0].municipality}  (${item.arrival})`}</div>
 
         <div>{flightDistance}</div>
 

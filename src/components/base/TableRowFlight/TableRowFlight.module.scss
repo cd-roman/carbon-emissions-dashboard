@@ -16,7 +16,7 @@
     height: max(calc((100% - 10px) / 10), 58px);
   }
 
-  div {
+  .airportName {
     margin: 0 4px;
     text-overflow: ellipsis;
     white-space: nowrap;
