@@ -1,6 +1,5 @@
 import React from 'react';
-import clsx from 'clsx';
-// import { ReactComponent as RefreshOutlineIcon } from '../../../assets/refresh-outline_1.svg';
+import clsx from "clsx";
 
 import styles from './TableScore.module.scss';
 

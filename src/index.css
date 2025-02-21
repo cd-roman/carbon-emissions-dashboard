@@ -43,7 +43,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #ECF5ED;
   width: 100%;
-  /* min-width: 1440px; */
 }
 
 code {
@@ -137,18 +136,12 @@ table {
 }
 
 thead {
-  /*display: table-row;*/
   border-bottom: 1px solid #ECF5ED;
   border-top: 1px solid #ECF5ED;
 }
 
 thead th {
   padding: 20px 0;
-}
-
-
-tr {
-
 }
 
 tr:not(:last-child) {
@@ -175,5 +168,3 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-
-tbody {}
