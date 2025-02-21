@@ -88,49 +88,44 @@ const MemoTableRowFlight = ({item, onDeleteFlight}: TableRowProps) => {
 
 
   return (
-    <tr className={styles.row}>
-      <th>
-        {item.id}
-      </th>
+    <>
+      <hr className={styles.flightRowDivider} />
+      <div className={styles.flightRow}>
+        <div>{item.id}</div>
 
-      <td>
-        {`${departure[0].municipality}  (${item.departure})`}
-      </td>
+        <div>{`${departure[0].municipality}  (${item.departure})`}</div>
 
-      <td>
-        {`${arrival[0].municipality}  (${item.arrival})`}
-      </td>
+        <div>{`${arrival[0].municipality}  (${item.arrival})`}</div>
 
-      <td>
-        {flightDistance}
-      </td>
+        <div>{flightDistance}</div>
 
-      <td>
-        <CustomNumInput
-          id={item.id}
-          min={0}
-          max={99}
-          starFrom={qtyFlights}
-          onChangeValue={(v) => handlerChangeAmountFlight(v)}
-        />
-      </td>
+        <div>
+          <CustomNumInput
+            id={item.id}
+            min={0}
+            max={99}
+            starFrom={qtyFlights}
+            onChangeValue={(v) => handlerChangeAmountFlight(v)}
+          />
+        </div>
 
-      <td className={styles.deleteCell}>
-        <span>{getNumbersWithCommaSeparate(carbonWeight)}</span>
-        {item.custom && (
-          <IconButton
-            onClick={() => onDeleteFlight(+item.id)}
-            style={{ marginLeft: 0 }}
-            aria-label="delete"
-            size="small"
-            className={styles.deleteButton}
-          >
-            <DeleteIcon />
-          </IconButton>
-        )}
-      </td>
-    </tr>
-  )
+        <div className={styles.deleteCell}>
+          <span>{getNumbersWithCommaSeparate(carbonWeight)}</span>
+          {item.custom && (
+            <IconButton
+              onClick={() => onDeleteFlight(+item.id)}
+              style={{ marginLeft: 0 }}
+              aria-label="delete"
+              size="small"
+              className={styles.deleteButton}
+            >
+              <DeleteIcon />
+            </IconButton>
+          )}
+        </div>
+      </div>
+    </>
+  );
 }
 
 export const TableRowFlight = React.memo(MemoTableRowFlight);

@@ -123,40 +123,50 @@ export const NewAirport = ({
     }
 
     return (
-        <tr className={className ? className : ''}>
-            <th style={{fontWeight:400,color:'#c1b9b2'}}>{info.id}</th>
-            <td>
-                <CustomAutocomplete
-                    shouldFocus
-                    dataArray={iataCodeArray}
-                    id='departureSelect'
-                    onSelectValue={onSelectDeparture}
-                    label="Enter airport..."
-                />
-
-            </td>
-            <td>
-                <CustomAutocomplete
-                    dataArray={iataCodeArray}
-                    id='arrivalSelect'
-                    onSelectValue={onSelectArrival}
-                    label="Enter airport..."
-                />
-            </td>
-            <td>{loading ? 'Loading...' : error ? error.message : 0}</td>
-            <td>0</td>
-            <td style={{position: 'relative'}}>
-                {loading ? 'Loading...' : error ? error.message : 0}
-                <IconButton
-                    onClick={handelClear}
-                    style={{ marginLeft: 0 }}
-                    aria-label="delete"
-                    size="small"
-                    className={styles.deleteButton}
-                >
-                    <DeleteIcon />
-                </IconButton>
-            </td>
+      <>
+        <hr
+          style={{
+            border: "none",
+            height: "1px",
+            backgroundColor: "#ECF5ED",
+            margin: 0,
+            padding: 0,
+          }}
+        />
+        <tr className={className ? className : ""}>
+          <th style={{ fontWeight: 400, color: "#c1b9b2" }}>{info.id}</th>
+          <td>
+            <CustomAutocomplete
+              shouldFocus
+              dataArray={iataCodeArray}
+              id="departureSelect"
+              onSelectValue={onSelectDeparture}
+              label="Enter airport..."
+            />
+          </td>
+          <td>
+            <CustomAutocomplete
+              dataArray={iataCodeArray}
+              id="arrivalSelect"
+              onSelectValue={onSelectArrival}
+              label="Enter airport..."
+            />
+          </td>
+          <td>{loading ? "Loading..." : error ? error.message : 0}</td>
+          <td>0</td>
+          <td style={{ position: "relative" }}>
+            {loading ? "Loading..." : error ? error.message : 0}
+            <IconButton
+              onClick={handelClear}
+              style={{ marginLeft: 0 }}
+              aria-label="delete"
+              size="small"
+              className={styles.deleteButton}
+            >
+              <DeleteIcon />
+            </IconButton>
+          </td>
         </tr>
-    )
+      </>
+    );
 }

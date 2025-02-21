@@ -1,27 +1,39 @@
 @import '../../styles/index';
 
-.plane {
-  thead > tr {
-    grid-template-columns: $flight-cols-pattern-sm;
+.flights-column-labels {
+  display: grid;
+  grid-template-columns: $flight-cols-pattern-sm;
+  padding: 20px 0;
+  place-items: center;
+  gap: 5px;
+  text-align: center;
+
+  > * {
+    margin: 0 4px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    min-width: 30px;
+    text-align: center;
+    line-height: normal;
   }
 
-  &--new {
-    grid-template-columns: $flight-cols-pattern-sm !important;
+  > *:last-child {
+    font-weight: 500;
+    color: $color-dark;
   }
 
-  &__table-link {
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-  }
-  
   @include mediaXl {
-    thead > tr {
       grid-template-columns: $flight-cols-pattern-lg;
-    }
-  
-    &--new {
-      grid-template-columns: $flight-cols-pattern-lg !important;
-    }
   }
 }
+
+.flights-column-labels-divider {
+  border: none;
+  height: 1px;
+  background-color: #ECF5ED;
+  margin: 0;
+  padding: 0;
+}
+  

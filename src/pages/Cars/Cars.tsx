@@ -73,13 +73,14 @@ export const Cars = () => {
 
             <TableScoreContentTable>
               <TableScoreContentTableHead>
-                <tr>
-                  <th>#</th>
-                  <th>Type</th>
-                  <th>Fuel Type</th>
-                  <th>Distance, {length}</th>
-                  <th>Carbon, {weight}</th>
-                </tr>
+                <hr className="cars-column-labels-divider" />
+                <div className="cars-column-labels">
+                  <div>#</div>
+                  <div>Type</div>
+                  <div>Fuel Type</div>
+                  <div>Distance, {length}</div>
+                  <div>Carbon, {weight}</div>
+                </div>
               </TableScoreContentTableHead>
 
               <TableScoreContentTableBody>

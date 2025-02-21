@@ -125,28 +125,31 @@ const MemoTableRowCar: React.FC<Props> = ({
   }, [distance, fuel, carbonCar, carbon, carsBarChartArr, length, setCarbon, setCarbonCar, setCarsBarChartArr]);
 
   return (
-    <tr className={styles.TableRowCar}>
-      <th>{id}</th>
-      <td>
-        <TypeIcon style={{width: '100%'}} />
-        <p className={styles.TableRowCarIconLabel}>{type}</p>
-      </td>
-      <td>
-        <CustomSelect
-          selectedValue={fuel}
-          values={fuelKeys}
-          onSelectValue={(fuelType) => handleChangeFuel(fuelType as FuelType)}
-        />
-      </td>
-      <td>
-        <CustomTextInput
-          placeholderText='Enter distance...'
-          value={carDistance}
-          onChangeValue={handleChangeDistance}
-        />
-      </td>
-      <td>{getNumbersWithCommaSeparate(carbonWeight)}</td>
-    </tr>
+    <>
+      <hr className={styles.rowCarDivider} />
+      <div className={styles.rowCar}>
+        <div>{id}</div>
+        <div>
+          <TypeIcon style={{ width: "100%" }} />
+          <p className={styles.TableRowCarIconLabel}>{type}</p>
+        </div>
+        <div style={{ width: "100%" }}>
+          <CustomSelect
+            selectedValue={fuel}
+            values={fuelKeys}
+            onSelectValue={(fuelType) => handleChangeFuel(fuelType as FuelType)}
+          />
+        </div>
+        <div>
+          <CustomTextInput
+            placeholderText="Enter distance..."
+            value={carDistance}
+            onChangeValue={handleChangeDistance}
+          />
+        </div>
+        <div>{getNumbersWithCommaSeparate(carbonWeight)}</div>
+      </div>
+    </>
   );
 };
 

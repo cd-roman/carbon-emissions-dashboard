@@ -142,14 +142,15 @@ export const Plane = () => {
 
             <TableScoreContentTable>
               <TableScoreContentTableHead>
-                <tr>
-                  <th>#</th>
-                  <th>Departure</th>
-                  <th>Arrival</th>
-                  <th>Distance, {length}</th>
-                  <th>Amount</th>
-                  <th>Carbon, {weight}</th>
-                </tr>
+                <hr className="flights-column-labels-divider" />
+                <div className="flights-column-labels">
+                  <div>#</div>
+                  <div>Departure</div>
+                  <div>Arrival</div>
+                  <div>Distance, {length}</div>
+                  <div>Amount</div>
+                  <div>Carbon, {weight}</div>
+                </div>
               </TableScoreContentTableHead>
 
               <TableScoreContentTableBody>

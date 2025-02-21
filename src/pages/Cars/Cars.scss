@@ -1,7 +1,34 @@
 @import '../../styles/index';
 
-.cars {
-  thead > tr {
+  .cars-column-labels {
+    display: grid;
     grid-template-columns: $cars-cols-pattern-sm;
+    padding: 20px 0;
+    place-items: center;
+    gap: 5px;
+    grid-auto-columns: 0;
+
+    > div {
+      margin: 0 4px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100%;
+      min-width: 30px;
+      text-align: center;
+      line-height: normal;
+    }
+
+    > div:last-child {
+      font-weight: 500;
+      color: $color-dark;
+    }
   }
-}
+
+  .cars-column-labels-divider {
+    border: none;
+    height: 1px;
+    background-color: #ECF5ED;
+    margin: 0;
+    padding: 0;
+  }

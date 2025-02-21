@@ -4,17 +4,27 @@ input {
  font-family: Manrope, sans-serif !important;
 }
 
-.TableRowCar {
+.rowCarDivider{
+  border: none;
+  height: 1px;
+  background-color: #ECF5ED;
+  margin: 0;
+  padding: 0;
+}
+
+.rowCar {
+  display: grid;
   color: $color-dark;
   font-size: 14px;
   line-height: 1.375;
   grid-template-columns: $cars-cols-pattern-sm;
   gap: 5px;
+  place-items: center;
+  height: max(calc((100% - 8px) / 8), 73px);
 
   @include mediaXl {
-    // grid-template-columns: $cars-cols-pattern-lg !important;
+    grid-template-columns: $cars-cols-pattern-lg !important;
     gap: 20px !important;
-    height: max(calc(100% / 8), 73px);
   }
 
   &IconLabel {
@@ -24,14 +34,15 @@ input {
 
   p {
     margin: 0;
+    text-align: center;
   }
 
-  th {
+  > div:first-child {
     color: $color-gray;
     font-weight: 400;
   }
 
-  td:last-child {
+  > div:last-child {
     font-weight: 700;
   }
 }

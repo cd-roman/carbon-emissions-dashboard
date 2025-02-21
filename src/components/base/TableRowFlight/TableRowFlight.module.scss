@@ -1,32 +1,39 @@
 @import "/src/styles/index";
 
-.row {
-
+.flightRow {
+  display: grid;
   grid-template-columns: $flight-cols-pattern-sm !important;
   gap: 5px;
+  color: $color-dark;
+  font-size: 14px;
+  line-height: 1.375;
+  place-items: center;
+  text-align: center;
+  height: max(calc((100% - 10px) / 10), 48px);
 
   @include mediaXl {
     grid-template-columns: $flight-cols-pattern-lg !important;
-    height: max(calc(100% / 10), 59px);
+    height: max(calc((100% - 10px) / 10), 58px);
   }
 
-  & > td {
-    font-size: 14px;
-    line-height: 1.375;
-    color: $color-dark;
-    font-weight: 500;
+  div {
+    margin: 0 4px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    min-width: 30px;
     text-align: center;
+    line-height: normal;
   }
 
-  & > td:last-child {
-    font-weight: 700;
-  }
-
-  & > th {
-    font-size: 16px;
-    line-height: 1.375;
+  > div:first-child {
     color: $color-gray;
     font-weight: 400;
+  }
+
+  > div:last-child {
+    font-weight: 700;
   }
 }
 
@@ -40,4 +47,12 @@
   top: 50%;
   right: 0;
   transform: translateY(-50%);
+}
+
+.flightRowDivider{
+  border: none;
+  height: 1px;
+  background-color: #ECF5ED;
+  margin: 0;
+  padding: 0;
 }
