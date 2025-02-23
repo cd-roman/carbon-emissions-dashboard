@@ -78,13 +78,9 @@
 
 }
 
-.icons {
-  margin: 40px 0;
+.iconContainer {
+  margin: 20px 0;
   display: flex;
-  gap: 20px;
-
-  a {
-    display: flex;
-    font-weight: 500;
-  }
+  gap: 8px;
+  color: $color-dark;
 }

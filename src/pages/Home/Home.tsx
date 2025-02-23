@@ -17,9 +17,9 @@ export const Home = () => {
             You can do the calculation for flights, car trips, or both. The
             carbon calculator will sum your carbon emissions in total and count
             how many trees are needed to offset your footprint. Additionally,
-            you can easily switch between km-mi and kg-lb in the side menu. Wish
-            you a low-carbon journey!
+            you can easily switch between km-mi and kg-lb in the side menu.
           </p>
+          <p>Wishing you a low-carbon journey!</p>
         </div>
         <div className="home__image">
           <img

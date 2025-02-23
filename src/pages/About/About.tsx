@@ -1,8 +1,11 @@
 import { Layout } from "../../components/modules";
 import aboutImage from "../../assets/about.webp";
 import styles from "./About.module.scss";
+import { ReactComponent as GithubIcon } from "../../assets/github.svg";
 
 export const About = () => {
+  const githubLink = "https://github.com/cd-roman/carbon-emissions-dashboard";
+
   return (
     <Layout>
       <div className={styles.about}>
@@ -34,6 +37,16 @@ export const About = () => {
             stack is React + Typescript, React Router Dom, Material UI, and
             Axios.
           </p>
+          <div className={styles.iconContainer}>
+            <p>
+              <a href={githubLink} rel="noreferrer" target="_blank">
+                Link to GitHub
+              </a>
+            </p>
+            <a href={githubLink} rel="noreferrer" target="_blank">
+              <GithubIcon />
+            </a>
+          </div>
         </div>
         <div className={styles.right}>
           <img src={aboutImage} alt="About" />
