@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { routes } from "./routes.tsx";
+import { NotFound } from "./pages/index.ts";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { CtxProvider } from "./components/base/";
 
@@ -23,6 +24,7 @@ function App() {
             {routes.map((route, index) => (
               <Route key={index} path={route.path} element={route.component} />
             ))}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </ThemeProvider>
       </Router>

@@ -1,0 +1,43 @@
+@import '../../styles/index';
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  text-align: center;
+
+  .notFoundContent {
+    max-width: 600px;
+
+    button{
+      &:hover {
+        border: 1px solid rgba($color-green, 0.5);
+      }
+    }
+  }
+
+  h1 {
+    font-size: 6rem;
+    margin: 0;
+    color: $color-dark;
+  }
+
+  h2 {
+    margin: 0 0 20px;
+    color: $color-dark;
+  }
+
+  p {
+    margin: 0 0 30px;
+    color: $color-dark;
+    line-height: 1.355;
+  }
+
+  @include mediaSM-LG-Landscape {
+    margin-top: 30%;
+  }
+}
