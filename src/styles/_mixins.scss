@@ -1,4 +1,4 @@
-@import './variables';
+@use './variables' as *;
 
 @mixin mediaSm {
   @media(min-width: $bp-sm) {

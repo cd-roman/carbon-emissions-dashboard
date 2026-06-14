@@ -1,4 +1,4 @@
-@import "/src/styles/index";
+@use "/src/styles/index" as *;
 
 .tableScore {
   padding: 13px 2px 13px 0;

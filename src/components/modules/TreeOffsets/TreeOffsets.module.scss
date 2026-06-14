@@ -1,4 +1,4 @@
-@import "/src/styles/index";
+@use "/src/styles/index" as *;
 
 .treeOffsets{
   padding: 15px;
