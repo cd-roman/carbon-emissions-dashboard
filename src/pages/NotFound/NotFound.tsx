@@ -1,5 +1,5 @@
 import { Layout } from '../../components/modules/Layout';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router";
 import { CustomButtonPrimary } from '../../components/base';
 import styles from './NotFound.module.scss';
 
