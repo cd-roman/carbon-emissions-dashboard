@@ -17,12 +17,17 @@ export const apiParams = {
 }
 
 const ifError = (err: any) => {
-    console.log('Error: \n', err)
-    return err
+    console.error(
+      "CarbonSutra API error:",
+      err?.response?.status,
+      err?.response?.data ?? err?.message,
+    );
+    throw err;
 }
 
 
-const mainUrl = 'https://carbonsutra1.p.rapidapi.com'
+// Same-origin proxy (Vite dev server / Netlify Function) that attaches the RapidAPI credentials.
+const mainUrl = '/carbonsutra'
 
 export interface DistanceBetweenAirportsRequiredFilds {
     iata_airport_from:string,
@@ -34,29 +39,32 @@ export interface FlightsTravelEstimateRequiredFilds extends DistanceBetweenAirpo
 }
 
 const createAxiosConnection = (url: string, auth : boolean) => {
-    const headers:RawAxiosRequestHeaders | AxiosHeaders | Partial<HeadersDefaults> = {
-        'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,
-
-        'X-RapidAPI-Host': import.meta.env.VITE_RAPID_API_HOST,
-    }
+    const headers:
+      | RawAxiosRequestHeaders
+      | AxiosHeaders
+      | Partial<HeadersDefaults> = {};
     if (auth) {
-        headers.Authorization = `Bearer ${import.meta.env.VITE_RAPID_API_AUTHORIZATION}`
-        headers['content-type'] = 'application/x-www-form-urlencoded'
+      headers["content-type"] = "application/x-www-form-urlencoded";
     }
 
     return axios.create({
-        baseURL: url,
-        timeout: 2000,
-        headers : headers
-    })
+      baseURL: url,
+      timeout: 15000,
+      headers: headers,
+    });
 }
 
 
 const FlightsTravelEstimateApi = createAxiosConnection(mainUrl!, true)
 export const postFlightsTravelEstimate = async (data:FlightsTravelEstimateRequiredFilds ) => {
     try {
-        const res = await FlightsTravelEstimateApi.post(apiParams.endpoints.flight_estimate , {...data,
-        number_of_passengers: 1})
+        const res = await FlightsTravelEstimateApi.post(
+          apiParams.endpoints.flight_estimate,
+          {
+            number_of_passengers: 1,
+            ...data,
+          },
+        );
         return res
     } catch (err: any) {
         ifError(err)
