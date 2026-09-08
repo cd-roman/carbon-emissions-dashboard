@@ -3,7 +3,9 @@ import React, { useState, useContext, useEffect } from 'react';
 import { MyGlobalContext } from "../CtxProvider";
 
 import {
-  getNumbersWithCommaSeparate, getWeightByLength,
+  getNumbersWithCommaSeparate,
+  getLength,
+  getWeightByLength,
 } from "../../../utils";
 
 import { Cars } from "../../../types";
@@ -22,13 +24,11 @@ type Props = {
   item: Cars,
 };
 
-const MemoTableRowCar: React.FC<Props> = ({
-  item,
-}) => {
+const MemoTableRowCar: React.FC<Props> = ({ item }) => {
   const {
     weight,
     carbon,
-      length,
+    length,
     carbonCar,
     setCarbon,
     setCarbonCar,
@@ -38,20 +38,28 @@ const MemoTableRowCar: React.FC<Props> = ({
 
   const { id, type } = item;
   const [fuel, setFuel] = useState<FuelType>(FuelType.gas);
-  const [distance, setDistance] = useState<number>(carsBarChartArr[+item.id - 1].distance);
-  const fuelKeys = Object.keys(FuelType).map(key => key as keyof typeof FuelType);
+  // distance is always kept in km, it is converted only for display
+  const [distance, setDistance] = useState<number>(
+    carsBarChartArr[+item.id - 1].distance,
+  );
+  const fuelKeys = Object.keys(FuelType).map(
+    (key) => key as keyof typeof FuelType,
+  );
   const carbonCur = fuel === FuelType.gas ? item.gasCarbon : item.dieselCarbon;
-  const carDistance = getNumbersWithCommaSeparate(Math.ceil(distance))
-  const carbonWeight = weight === 'kg'
-      ? Math.round((carbonCur * +getWeightByLength(length, distance)))
-      : Math.round((carbonCur * 2.20462 * +getWeightByLength(length, distance)));
+  const carDistance = getNumbersWithCommaSeparate(
+    Math.round(+getLength(length, distance)),
+  );
+  const carbonWeight =
+    weight === "kg"
+      ? Math.round(carbonCur * distance)
+      : Math.round(carbonCur * 2.20462 * distance);
 
   useEffect(() => {
-    setDistance(carsBarChartArr[+item.id - 1].distance)
-  }, [carsBarChartArr, item.id])
+    setDistance(carsBarChartArr[+item.id - 1].distance);
+  }, [carsBarChartArr, item.id]);
 
   const handleChangeDistance = (v: string) => {
-    const valueDistance = +v.replace(/\D/g, '');
+    const valueDistance = +getWeightByLength(length, +v.replace(/\D/g, ""));
     setDistance(valueDistance);
 
     const newCarsBarChartArr = [...carsBarChartArr].map((car, index, array) => {
@@ -61,28 +69,29 @@ const MemoTableRowCar: React.FC<Props> = ({
       }
 
       return car;
-    })
+    });
 
-    setCarsBarChartArr(newCarsBarChartArr)
-  }
+    setCarsBarChartArr(newCarsBarChartArr);
+  };
 
   const handleChangeFuel = (type: FuelType) => {
     setFuel(type);
-    const carbonCoef = type === FuelType.gas ? item.gasCarbon : item.dieselCarbon;
+    const carbonCoef =
+      type === FuelType.gas ? item.gasCarbon : item.dieselCarbon;
 
     const newCarsBarChartArr = [...carsBarChartArr].map((car, index, array) => {
       if (car.id + 1 === item.id) {
-        array[index].carbon = carbonCoef * +getWeightByLength(length, distance);
+        array[index].carbon = carbonCoef * distance;
       }
 
       return car;
     });
 
     setCarsBarChartArr(newCarsBarChartArr);
-  }
+  };
 
   const findIcon = (key: string) => {
-    const formattedKey = key.replace(/-/g, '').toLowerCase();
+    const formattedKey = key.replace(/-/g, "").toLowerCase();
 
     switch (formattedKey) {
       case "asegment":
@@ -102,14 +111,17 @@ const MemoTableRowCar: React.FC<Props> = ({
       default:
         return carsIcons.offroad;
     }
-  }
+  };
 
   const TypeIcon = findIcon(type);
 
   useEffect(() => {
-    const totalCarbonCars = +getWeightByLength(length ,carsBarChartArr.reduce((total, item) => total + item.carbon, 0))
+    const totalCarbonCars = carsBarChartArr.reduce(
+      (total, item) => total + item.carbon,
+      0,
+    );
     if (totalCarbonCars === carbonCar) {
-      return
+      return;
     }
 
     if (totalCarbonCars > carbonCar) {
@@ -121,8 +133,16 @@ const MemoTableRowCar: React.FC<Props> = ({
     }
 
     setCarbonCar(totalCarbonCars);
-
-  }, [distance, fuel, carbonCar, carbon, carsBarChartArr, length, setCarbon, setCarbonCar, setCarsBarChartArr]);
+  }, [
+    distance,
+    fuel,
+    carbonCar,
+    carbon,
+    carsBarChartArr,
+    setCarbon,
+    setCarbonCar,
+    setCarsBarChartArr,
+  ]);
 
   return (
     <>
@@ -151,6 +171,6 @@ const MemoTableRowCar: React.FC<Props> = ({
       </div>
     </>
   );
-};
+};;
 
 export const TableRowCar = React.memo(MemoTableRowCar);
